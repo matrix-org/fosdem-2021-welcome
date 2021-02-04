@@ -1,0 +1,195 @@
+<style type="text/css">
+
+    /* we deliberately inline style here to avoid flash-of-CSS problems, and to avoid
+     * voodoo where we have to set display: none by default
+     */
+
+    a {
+        color:#1d99f3
+    }
+
+    .mx_HomePage_header h1 {
+        margin-left: 0px;
+        margin-bottom: 0px;
+        margin-top: 20px;
+        margin-right: 20px;
+        color: #ffffff;
+    }
+
+    .mx_HomePage_header h2 {
+        margin-left: 0px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        color: #ffffff;
+    }
+
+    .mx_HomePage_header h1 a {
+        color: #ffffff;
+    }
+
+    .mx_HomePage h3 {
+        margin-top: 30px;
+    }
+
+    .mx_HomePage_header {
+        border: 1px solid #000000;
+        background-color: #000000;
+        border-radius: 5px;
+        align-items: center;
+    }
+
+    .mx_HomePage_col {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .mx_HomePage_toprow {
+        flex-wrap: wrap;
+        margin-top: 40px;
+    }
+
+    .mx_HomePage_row {
+        flex: 1 1 0;
+        margin-right: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mx_HomePage_logo {
+        margin-top: 20px;
+        margin-left: 40px;
+        margin-right: 40px;
+        margin-bottom: 20px;
+        display: inline;
+        height: 100px;
+    }
+
+    .mx_HomePage_room {
+        cursor: pointer;
+        float: left;
+        text-decoration: none;
+        text-align: center;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 120px;
+    }
+
+    .mx_HomePage_toprow .mx_HomePage_room {
+        width: 64px;
+    }
+
+
+    .mx_HomePage_room .mx_HomePage_icon {
+        border-radius: 50%;
+        width: 64px;
+        height: 64px;
+    }
+
+    .mx_HomePage_room .mx_HomePage_name {
+        display: block;
+    }
+
+    .mx_HomePage_room .mx_HomePage_desc {
+        display: block;
+        font-size: 12px;
+        margin-top: 8px;
+    }
+
+    .mx_HomePage_comment {
+        display: flex;
+        align-items: center;
+        margin-left: 100px;
+        min-height: 64px;
+    }
+
+    .mx_HomePage_container h4::after {
+        content: ":";
+    }
+
+    .mx_HomePage_container {
+        display: block ! important;
+        margin: 20px;
+    }
+
+    .mx_HomePage_container h1,
+    .mx_HomePage_container h2,
+    .mx_HomePage_container h3,
+    .mx_HomePage_container h4 {
+        font-weight: 600;
+    }
+
+    .mx_Button {
+        margin-top: 20px;
+        height: 40px;
+        border: 0;
+        border-radius: 40px;
+        margin-left: 4px;
+        margin-right: 4px;
+        min-width: 80px;
+        background-color: #1d99f3;
+        color: #fff;
+        cursor: pointer;
+        font-size: 15px;
+        padding: 0 11px;
+        word-break: break-word;
+    }
+
+    .mx_ModularAlign {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .mx_ModularContainer {
+        max-width: 800px;
+        display: block;
+
+        /* Formerly on <h3> but we want that style for the entire text */
+        font-weight: 600;
+        text-align: center;
+        margin-top: 30px;
+        font-size: 1.17em;
+    }
+
+</style>
+
+<div class="mx_HomePage_container">
+    <div class="mx_HomePage_col mx_HomePage_header">
+        <a href="https://mozilla.org"><img src="https://ems.element.io/customer-branding/mozilla/logo.svg" class="mx_HomePage_logo"></a>
+        <div>
+            <h1>Welcome to chat.mozilla.org</h1>
+        </div>
+    </div>
+    <div class="mx_HomePage_col mx_HomePage_toprow">
+        <div class="mx_HomePage_row">
+            <div class="mx_ModularAlign">
+                <p class="mx_ModularContainer">
+                    Welcome to the Mozilla community Matrix instance.
+                </p>
+                <p class="mx_ModularContainer">
+                    All participants are expected to respect and uphold Mozilla&apos;s code of conduct and etiquette guidelines. For more details, please read the
+                    <a href='https://www.mozilla.org/about/governance/policies/participation/'>Mozilla&nbsp;Community Participation&nbsp;Guidelines.</a>
+                </p>
+                <p class="mx_ModularContainer">
+                    You can learn more about participating in Mozilla&apos;s Matrix instance <a href="https://wiki.mozilla.org/Matrix">on wiki.mozilla.org</a>.
+                </p>
+                <p class="mx_ModularContainer">
+                    Powered by <a href="https://matrix.org">Matrix</a>, provided by <a href="https://element.io/matrix-services" target="_blank" rel="noopener">EMS</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="mx_HomePage_row">
+        <div class="mx_ModularAlign">
+            <a href="#/directory" class="mx_ButtonParent mx_SecondaryButton mx_Button_iconRoomDirectory">
+                <div class="mx_ButtonLabel">_t("Explore rooms")</div>
+            </a>
+        </div>
+    </div>
+</div>
