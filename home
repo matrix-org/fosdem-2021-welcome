@@ -1,0 +1,407 @@
+<style type="text/css">
+    /* we deliberately inline style here to avoid flash-of-CSS problems, and to avoid
+     * voodoo where we have to set display: none by default
+     */
+
+    a {
+        color: #0DBD8B;
+        text-decoration: none;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 140%;
+        font-weight: 500;
+        font-family: helvetica, arial, sans-serif;
+        color: #647189;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-weight: 600;
+        font-family: helvetica, arial, sans-serif;
+        line-height: 140%;
+    }
+
+    button {
+        padding: 10px 32px 10px 32px;
+        border: none;
+        border-radius: 8px;
+        background-color: #ECFAF6;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        color: #0DBD8B;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .container {
+        margin: 10vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .welcome {
+        margin-top: 20px;
+        margin-bottom: 0px;
+    }
+
+    .welcome_text {
+        margin-top: 20px;
+        margin-bottom: 0px;
+        text-align: center;
+    }
+
+    .welcome_text h1 {
+        font-size: 42px;
+    }
+
+    .starting_rooms {
+        display: flex;
+        flex-direction: row;
+        margin-left: 20px;
+        margin-top: 40px;
+    }
+
+    .card {
+        border: 1px solid#E3E8F0;
+        border-radius: 8px;
+        width: 130px;
+        padding: 20px;
+        background-color: white;
+        margin-right: 20px;
+        text-align: center;
+    }
+
+    .card img {
+        align-items: center;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        color: black;
+        font-weight: 700;
+    }
+
+    .card h3 {
+        text-align: left;
+    }
+
+    .room_directory {
+        display: flex;
+        flex-direction: row;
+        width: 60%;
+        justify-content: space-between;
+    }
+
+    .rooms_left {
+        margin-right: 10px;
+    }
+
+    .rooms_right {
+        margin-left: 10px;
+    }
+
+    .room_card {
+        border: 1px solid#E3E8F0;
+        border-radius: 8px;
+        padding: 20px;
+        background-color: white;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        margin: 0;
+        margin-bottom: 10px;
+        max-width: 300px;
+    }
+
+    .room_card img {
+        display: block;
+        margin-right: 10px;
+    }
+
+    .room_card p {
+        margin: 0;
+        font-weight: 700;
+        text-align: left;
+        color: black;
+        font-size: 15px;
+        margin-right: 50px;
+    }
+
+    .title_card {
+        border-radius: 8px;
+        padding: 20px;
+        background-color: white;
+        text-align: left;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        max-width: 300px;
+    }
+
+    .title_card h2 {
+        margin: 0;
+    }
+
+    .room_text {
+        display: contents;
+    }
+
+    .btn {
+        margin-top: 0;
+        margin-left: auto;
+    }
+
+    .section {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10vh;
+        text-align: center;
+    }
+
+    .section_callout {
+        width: 100%;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+        padding-top: 10vh;
+        background-color: #f9f9f9;
+        text-align: center;
+    }
+
+    .section_cards {
+        display: flex;
+        justify-content: center;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+    }
+
+    .display_pic {
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+
+<div class="container">
+    <div class="welcome">
+
+        <a href="https://fosdem.org/2021/" target="_blank"> <img src="https://via.placeholder.com/50" width="50px"
+                height="50px"> </a>
+    </div>
+    <div class="welcome_text">
+        <h1>Welcome to FOSDEM!</h1>
+        <p>
+            To get going, join one of these starting rooms...
+        </p>
+    </div>
+
+    <div class="starting_rooms">
+        <div class="card">
+            <img src="https://via.placeholder.com/32" class="display_pic">
+            <p>The cafe</p>
+            <a href="#"><button type="button">Join</button></a>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/32" class="display_pic">
+            <p>The food trucks</p>
+            <a href="#"><button type="button">Join</button></a>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/32" class="display_pic">
+            <p>The beer event</p>
+            <a href="#"><button type="button">Join</button></a>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/32" class="display_pic">
+            <p>The lounge</p>
+            <a href="#"><button type="button">Join</button></a>
+        </div>
+    </div>
+
+    <div class="section">
+        <p>
+            Or head straight to where you want to go...
+        </p>
+    </div>
+
+    <div class="room_directory">
+        <div class="rooms_left">
+            <h2>Main Tracks</h2>
+            <div class="room_card ">
+                <div class="room_text">
+                    <img src="https://via.placeholder.com/32">
+                    <p>The cafe</p>
+                </div>
+                <div class="btn"> <a href="#"><button type="button">Join</button></a>
+                </div>
+            </div>
+            <div class="room_card ">
+                <div class="room_text">
+                    <img src="https://via.placeholder.com/32">
+                    <p>The food trucks</p>
+                </div>
+                <div class="btn"> <a href="#"><button type="button">Join</button></a>
+                </div>
+            </div>
+            <div class="room_card ">
+                <div class="room_text">
+                    <img src="https://via.placeholder.com/32">
+                    <p>The beer event</p>
+                </div>
+                <div class="btn"> </div>
+                <div class="btn"> <a href="#"><button type="button">Join</button></a>
+                </div>
+            </div>
+            <div class="room_card ">
+                <div class="room_text">
+                    <img src="https://via.placeholder.com/32">
+                    <p>The lounge</p>
+                </div>
+                <div class="btn"> <a href="#"><button type="button">Join</button></a>
+                </div>
+            </div>
+            <div class="title_card">
+                <h2>Dev Rooms</h2>
+            </div>
+            <div class="room_card ">
+                <div class="room_text">
+                    <img src="https://via.placeholder.com/32">
+                    <p>The cafe</p>
+                </div>
+                <div class="btn"> <a href="#"><button type="button">Join</button></a>
+                </div>
+            </div>
+            <div class="room_card ">
+                <div class="room_text">
+                    <img src="https://via.placeholder.com/32">
+                    <p>The food trucks</p>
+                </div>
+                <div class="btn"> <a href="#"><button type="button">Join</button></a>
+                </div>
+            </div>
+            <div class="room_card ">
+                <div class="room_text">
+                    <img src="https://via.placeholder.com/32">
+                    <p>The beer event</p>
+                </div>
+                <div class="btn"> </div>
+                <div class="btn"> <a href="#"><button type="button">Join</button></a>
+                </div>
+            </div>
+            <div class="room_card ">
+                <div class="room_text">
+                    <img src="https://via.placeholder.com/32">
+                    <p>The lounge</p>
+                </div>
+                <div class="btn"> <a href="#"><button type="button">Join</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="rooms_right">
+            <h2>Stands</h2>
+            <div class="room_card ">
+                <div class="room_text">
+                    <img src="https://via.placeholder.com/32">
+                    <p>The cafe</p>
+                </div>
+                <div class="btn"> <a href="#"><button type="button">Join</button></a>
+                </div>
+            </div>
+            <div class="room_card ">
+                <div class="room_text">
+                    <img src="https://via.placeholder.com/32">
+                    <p>The food trucks</p>
+                </div>
+                <div class="btn"> <a href="#"><button type="button">Join</button></a>
+                </div>
+            </div>
+            <div class="room_card ">
+                <div class="room_text">
+                    <img src="https://via.placeholder.com/32">
+                    <p>The beer event</p>
+                </div>
+                <div class="btn"> </div>
+                <div class="btn"> <a href="#"><button type="button">Join</button></a>
+                </div>
+            </div>
+            <div class="room_card ">
+                <div class="room_text">
+                    <img src="https://via.placeholder.com/32">
+                    <p>The lounge</p>
+                </div>
+                <div class="btn"> <a href="#"><button type="button">Join</button></a>
+                </div>
+            </div>
+
+            <div class="room_card ">
+                <div class="room_text">
+                    <img src="https://via.placeholder.com/32">
+                    <p>The cafe</p>
+                </div>
+                <div class="btn"> <a href="#"><button type="button">Join</button></a>
+                </div>
+            </div>
+            <div class="room_card ">
+                <div class="room_text">
+                    <img src="https://via.placeholder.com/32">
+                    <p>The food trucks</p>
+                </div>
+                <div class="btn"> <a href="#"><button type="button">Join</button></a>
+                </div>
+            </div>
+            <div class="room_card ">
+                <div class="room_text">
+                    <img src="https://via.placeholder.com/32">
+                    <p>The beer event</p>
+                </div>
+                <div class="btn"> </div>
+                <div class="btn"> <a href="#"><button type="button">Join</button></a>
+                </div>
+            </div>
+            <div class="room_card ">
+                <div class="room_text">
+                    <img src="https://via.placeholder.com/32">
+                    <p>The lounge</p>
+                </div>
+                <div class="btn"> <a href="#"><button type="button">Join</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <a href="https://fosdem.org/2021/schedule/roomtracks/"><button type="button">See the full event
+                schedule</button></a>
+    </div>
+
+    <div class="section_callout">
+        <h2>Get the conversation going</h2>
+        <div class="section_cards">
+            <div class="card">
+                <img src="https://via.placeholder.com/32">
+                <h3>Send a Direct Message</h3>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/32">
+                <h3>Explore Public Rooms</h3>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/32">
+                <h3>Create a Group Chat</h3>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <a href="#/directory">
+                <div>_t("Explore rooms")</div>
+            </a>
+        </div>
+    </div>
+</div>
