@@ -1,4 +1,4 @@
-let ROOMS = require("./rooms.json");
+const ROOMS = require("./rooms.json");
 let fs = require('fs');
 /*
 Devrooms prefixes: D. M. K.
@@ -8,20 +8,31 @@ Other stuff: L. I.
 omit S.radio S.osi D.cloud
 */
 
+var roomsArray = [];
+
+for (var room in ROOMS) {
+    roomsArray.push([room, ROOMS[room]]);
+}
+
+roomsArray = roomsArray.sort(function(a, b) {
+    return a[1].name > b[1].name;
+});
+
 let template = fs.readFileSync("home_template.html", 'utf-8');
 let mainTracksHtml = "";
 let devRoomsHtml = "";
 let standsHtml = "";
 const fosdemIds = Object.keys(ROOMS);
-fosdemIds.forEach(id => {
-    if (id[0] === "M" || id[0] === "K") {
-        mainTracksHtml += genRoomCard(id, "mainTrack");
+roomsArray.forEach(room => {
+    // ignore as hardcoded
+    // if (id[0] === "M" || id[0] === "K") {
+    //     mainTracksHtml += genRoomCard(id, "mainTrack");
+    // }
+    if (room[0][0] === "D") {
+        devRoomsHtml += genRoomCard(room[0], "devRoom");
     }
-    if (id[0] === "D") {
-        devRoomsHtml += genRoomCard(id, "devRoom");
-    }
-    if (id[0] === "S" || id[0] === "B") {
-        standsHtml += genRoomCard(id, "stand");
+    if (room[0][0] === "S" || room[0][0] === "B") {
+        standsHtml += genRoomCard(room[0], "stand");
     }
 });
 template = template.replace("%%MAIN_TRACKS%%", mainTracksHtml);
