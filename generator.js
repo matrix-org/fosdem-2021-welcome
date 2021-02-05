@@ -1,4 +1,4 @@
-const ROOMS = require("./rooms.json");
+let ROOMS = require("./rooms.json");
 let fs = require('fs');
 /*
 Devrooms prefixes: D. M. K.
@@ -27,7 +27,7 @@ fosdemIds.forEach(id => {
 template = template.replace("%%MAIN_TRACKS%%", mainTracksHtml);
 template = template.replace("%%DEVROOMS%%", devRoomsHtml);
 template = template.replace("%%STAND%%", standsHtml);
-fs.writeFileSync("home_generated.html", template);
+fs.writeFileSync("home.html", template);
 function genRoomCard(id, mode) {
     let roomName = ROOMS[id].name;
     let canonicalAlias = ROOMS[id].canonicalAlias;
