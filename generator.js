@@ -15,7 +15,10 @@ for (var room in ROOMS) {
 }
 
 roomsArray = roomsArray.sort(function(a, b) {
-    return a[1].name > b[1].name;
+    if (a[1].name && a[1].name)
+        return a[1].name.localeCompare(b[1].name);
+    else
+        return false;
 });
 
 let template = fs.readFileSync("home_template.html", 'utf-8');
