@@ -1,0 +1,1527 @@
+<style type="text/css">
+    /* we deliberately inline style here to avoid flash-of-CSS problems, and to avoid
+     * voodoo where we have to set display: none by default
+     */
+
+    a {
+        color: #0DBD8B;
+        text-decoration: none;
+        font-weight: 500;
+        font-family: helvetica, arial, sans-serif;
+    }
+
+
+    p {
+        font-size: 16px;
+        line-height: 140%;
+        font-weight: 500;
+        font-family: helvetica, arial, sans-serif;
+        color: #647189;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-weight: 600;
+        font-family: helvetica, arial, sans-serif;
+        line-height: 140%;
+        color: #27303A;
+    }
+
+    .button {
+        padding: 10px 32px 10px 32px;
+        border: none;
+        border-radius: 8px;
+        background-color: #ECFAF6;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        color: #0DBD8B;
+        font-size: 16px;
+        font-weight: 500;
+        transition: ease-in 0.5s transform;
+        -webkit-transition: ease 0.5s transform;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+    }
+
+    .button:hover {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+    }
+
+    .button.schedule {
+        max-width: 200px
+    }
+
+    .container {
+        margin-top: 10vh;
+        margin-left: 10vh;
+        margin-right: 10vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .welcome {
+        margin-top: 20px;
+        margin-bottom: 0px;
+    }
+
+    .welcome_text {
+        text-align: center;
+    }
+
+    .welcome_text h1 {
+        font-size: 42px;
+    }
+
+    .starting_rooms {
+        display: flex;
+        flex-direction: row;
+        margin-top: 40px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card {
+        border: 1px solid#E3E8F0;
+        border-radius: 8px;
+        width: 130px;
+        padding: 20px;
+        background-color: white;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #27303A;
+        transition: ease-in 0.5s transform;
+        -webkit-transition: ease 0.5s transform;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+    }
+
+    .card:hover {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+        -webkit-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.03);
+        -moz-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.03);
+        box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.03);
+    }
+
+    .card img {
+        align-items: center;
+        display: block;
+        margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .card p {
+        color: black;
+        font-weight: 700;
+    }
+
+    .card h3 {
+        text-align: left;
+    }
+
+    .card svg {
+        align-items: center;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .room_directory {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .room_directory.left {
+        display: flex;
+        flex-direction: column;
+        margin-right: 10px;
+    }
+
+    .room_directory.right {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+    }
+
+    .room_card {
+        border: 1px solid#E3E8F0;
+        border-radius: 8px;
+        padding: 20px;
+        background-color: white;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        margin: 0;
+        margin-bottom: 10px;
+        max-width: 300px;
+        transition: ease-in 0.5s transform;
+        -webkit-transition: ease 0.5s transform;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+    }
+
+    .room_card:hover {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+        -webkit-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.03);
+        -moz-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.03);
+        box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.03);
+    }
+
+    .room_card img {
+        display: block;
+        margin-right: 10px;
+    }
+
+    .room_card p {
+        margin: 0;
+        font-weight: 700;
+        text-align: left;
+        color: black;
+        font-size: 15px;
+        margin-right: 50px;
+    }
+
+    .title_card {
+        border-radius: 8px;
+        padding: 20px;
+        background-color: white;
+        text-align: left;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        max-width: 300px;
+    }
+
+    .title_card h2 {
+        margin: 0;
+    }
+
+    .room_text {
+        display: contents;
+    }
+
+    .btn {
+        margin-top: 0;
+        margin-left: auto;
+    }
+
+    .section {
+        justify-content: center;
+        margin-top: 50px;
+        text-align: center;
+        flex-wrap: wrap;
+    }
+
+    .section_callout {
+        width: 100%;
+        margin-top: 60px;
+        margin-bottom: 10px;
+        padding: 60px;
+        background-color: #f9f9f9;
+        text-align: center;
+    }
+
+    .section_cards {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+        padding: 40px 50px 60px 50px;
+    }
+</style>
+
+<div class="container">
+    <div class="welcome">
+
+        <a href="https://fosdem.org/2021/" target="_blank"> <svg width="54" height="54" viewBox="0 0 54 54" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M25.242 1L23.0367 1.26277L21.8617 6.4309C20.3767 6.79966 18.9355 7.32657 17.5629 8.00258L13.3009 4.92983L11.4707 6.18717L12.7815 11.2166C11.6239 12.2508 10.5823 13.408 9.67498 14.6675L4.55411 13.959L3.51778 15.923L6.95707 19.7276C6.41494 21.1961 6.03551 22.7195 5.82558 24.2707L1.00493 26.0192L1 28.2398L5.81328 30.0098C6.02094 31.5593 6.39768 33.0813 6.93679 34.5487L3.46742 38.3465L4.49454 40.3154L9.61479 39.6321C10.5201 40.8922 11.5596 42.0501 12.7152 43.0855L11.3762 48.118L13.2008 49.3839L17.4695 46.3388C18.842 47.0184 20.2833 47.5488 21.7689 47.9209L22.9207 53.0952L25.1241 53.3678L27.5148 48.5766V48.5668C29.0236 48.5293 30.5242 48.3324 31.9916 47.9793L32.0058 48.0419L35.4549 52.1369L37.533 51.3541L37.4231 46.0012L37.3734 45.9091C38.687 45.1788 39.92 44.3123 41.0521 43.3238L41.1516 43.4398L46.1085 45.4633L47.5851 43.8045L44.9998 39.1158L44.8395 39.0084C45.6696 37.7615 46.3666 36.431 46.9189 35.0387L47.1111 35.1154L52.4407 34.6028L52.9767 32.4485L48.509 29.4979L48.2702 29.4721C48.3602 28.7126 48.4094 27.9488 48.4176 27.184C48.4169 26.4535 48.3787 25.7236 48.3034 24.9971L48.5189 24.9744L53 22.044L52.4732 19.8873L47.1467 19.3507L46.941 19.4317C46.3998 18.0356 45.7135 16.7002 44.8936 15.4473L45.0532 15.3411L47.6594 10.6641L46.1908 8.99846L41.2247 10.9993L41.1203 11.1202C39.992 10.1287 38.7625 9.25866 37.452 8.5245L37.5079 8.42197L37.6417 3.06904L35.5672 2.27705L32.0997 6.35668L32.0874 6.4101C30.6206 6.04821 29.1195 5.84262 27.6094 5.79676L25.242 1ZM26.4429 13.0498C33.1663 12.7848 39.1458 17.2927 40.7415 23.8293C42.5943 31.4187 37.9437 39.0731 30.3543 40.9257C22.7651 42.7781 15.1111 38.1276 13.2585 30.5384C11.4058 22.949 16.0563 15.2947 23.6458 13.4421C24.5627 13.2183 25.4998 13.0869 26.4429 13.0498Z"
+                    fill="#AB1B93" stroke="#AB1B93" stroke-width="0.795422" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path
+                    d="M22.3595 30.9956C24.4646 30.9956 26.1711 29.289 26.1711 27.1839C26.1711 25.0788 24.4646 23.3723 22.3595 23.3723C20.2544 23.3723 18.5479 25.0788 18.5479 27.1839C18.5479 29.289 20.2544 30.9956 22.3595 30.9956Z"
+                    fill="#AB1B93" stroke="#AB1B93" stroke-width="0.768316" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path
+                    d="M31.6405 30.9956C33.7456 30.9956 35.4521 29.289 35.4521 27.1839C35.4521 25.0788 33.7456 23.3723 31.6405 23.3723C29.5354 23.3723 27.8289 25.0788 27.8289 27.1839C27.8289 29.289 29.5354 30.9956 31.6405 30.9956Z"
+                    fill="#AB1B93" stroke="#AB1B93" stroke-width="0.768316" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </a>
+    </div>
+    <div class="welcome_text">
+        <h1>Welcome to FOSDEM!</h1>
+        <p>
+            To get going, join one of these starting rooms...
+        </p>
+    </div>
+
+    <div class="starting_rooms">
+        <div class="card">
+            <img src="https://via.placeholder.com/32">
+            <p>The cafe</p>
+            <a href="#">
+                <div class="button">Join</div>
+            </a>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/32">
+            <p>The food trucks</p>
+            <a href="#">
+                <div class="button">Join</div>
+            </a>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/32">
+            <p>The beer event</p>
+            <a href="#">
+                <div class="button">Join</div>
+            </a>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/32">
+            <p>The lounge</p>
+            <a href="#">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="section">
+        <p>
+            Or head straight to where you want to go...
+        </p>
+    </div>
+
+    <div class="room_directory">
+        <div class="room_directory left ">
+            <h2>Main Tracks</h2>
+            
+    <div class="room_card">
+        <div class="room_text" id="mainTrack">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>FOSDEM Keynotes</p>
+        </div>
+        <div class="btn"> <a href="/#/#fosdem-keynotes:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="mainTrack">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Miscellaneous Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#misc:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="mainTrack">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Community Main Track</p>
+        </div>
+        <div class="btn"> <a href="/#/#community:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+            <div class="title_card">
+                <h2>Dev Rooms</h2>
+            </div>
+            
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Python Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#python:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Collaborative Information and Content Management Applications Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#collab:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Microkernel Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#microkernel:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>PostgreSQL Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#postgresql:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Legal and Policy Issues Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#legal:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Distributions Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#distributions:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Open Source Design Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#design:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Kotlin Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#kotlin:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Tool The Docs Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#docs:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Software Composition Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#composition:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Beyond Blockchain - Distributed Web Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#blockchain:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Mozilla Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#mozilla:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>OpenPOWER Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#power:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Dependency Management Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#dependency:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Friends of OpenJDK Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#openjdk:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Containers Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#containers:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>OpenChain Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#openchain:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Web Performance Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#web.performance:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Continuous Integration and Continuous Deployment Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#cicd:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Free Software Radio Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#radio:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Testing and Automation Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#testing:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Hardware-Aided Trusted Computing Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#hardware.trusted:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Go Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#go:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Open Research Tools and Technologies Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#research:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>LibreOffice Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#libreoffice:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Retrocomputing Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#retro:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Infra Management Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#infra:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>HPC, Big Data and Data Science Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#hpc:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Embedded, Mobile and Automotive Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#embedded:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Community Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#community-devroom:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>JavaScript Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#javascript:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Open Source Computer Aided Modeling and Design Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#cad:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Apache OpenOffice Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#apache.openoffice:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Virtualization and IaaS Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#virtualization:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>MySQL Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#mysql:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>MariaDB Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#mariadb:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Perl and Raku Programming Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#perl:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Software Defined Storage Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#sds:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Real Time Communications Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#rtc:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Geospatial Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#geospatial:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Safety and Open Source Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#safety:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>#graph:fosdem.org</p>
+        </div>
+        <div class="btn"> <a href="/#/#graph:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Declarative and Minimalistic Computing Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#declarative.minimalistic:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Monitoring and Observability Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#monitoring:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Emulator Development Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#emulator:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Open Source Firmware, BMC and Bootloader Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#firmware:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Network monitoring, discovery and inventory Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#network-devroom:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Zig Programming Language Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#zig:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>BSD Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#bsd:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="devRoom">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Software Defined Networking Devroom</p>
+        </div>
+        <div class="btn"> <a href="/#/#sdn:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+        </div>
+        <div class="room_directory right">
+            <h2>Stands</h2>
+            
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>FOSSASIA stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#fossasia-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Unikraft stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#unikraft-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Coderdojo Belgium stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#coderdojo-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Tracim stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#tracim-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>YottaDB stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#yottadb-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Nextcloud Hub stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#nextcloud-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>CiviCRM stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#civicrm-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Pulp stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#pulp-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>LibreOffice stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#libreoffice-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>The Apache Software Foundation stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#apache-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>MIT App Inventor stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#appinventor-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>The Fedora Project stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#fedora-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Kiwi TCMS stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#kiwi-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Jenkins stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#jenkins-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>ReactOS stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#reactos-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Free Software Foundation Europe stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#fsfe-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>OpenUK stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#openuk-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>OpenMandriva stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#openmandriva-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Sesame Discovery stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#sesame-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Box86 stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#box86-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Pharo stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#pharo-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>MariaDB Foundation stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#mariadb-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>RefPerSys stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#refpersys-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>OpenEmbedded stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#openembedded-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Google Summer of Code stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#gsoc-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>GitLab stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#gitlab-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>School of AI Port Haarcourt stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#haarcourt-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Kopano stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#kopano-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>OpenHarmony Project stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#openharmony-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>ONLYOFFICE stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#onlyoffice-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Checkmk stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#checkmk-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>OW2 Open Source Community stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#ow2-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>The GNOME Foundation stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#gnome-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Foreman stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#foreman-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>KDE Community stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#kde-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>ntop stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#ntop-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>OpenTAP stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#opentap-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Mautic stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#mautic-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>PostgreSQL stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#postgresql-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>XWiki & CryptPad stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#xwiki-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>schul-frei stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#schulfrei-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>The Eclipse Foundation stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#eclipse-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>FreeBSD Project stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#freebsd-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>openwifi stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#openwifi-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Haiku stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#haiku-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>The LibreSOC Project stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#libresoc-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Debian stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#debian-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>XCP-ng stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#xcpng-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>#bofs:fosdem.org</p>
+        </div>
+        <div class="btn"> <a href="/#/#bofs:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Thola and NESi stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#thola-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>Matrix stand</p>
+        </div>
+        <div class="btn"> <a href="/#/#matrix-stand:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="room_card">
+        <div class="room_text" id="stand">
+            <!--<img src="https://via.placeholder.com/32">-->
+            <p>BOFs Testing</p>
+        </div>
+        <div class="btn"> <a href="/#/#bofs.test:fosdem.org">
+                <div class="button">Join</div>
+            </a>
+        </div>
+    </div>
+
+        </div>
+    </div>
+
+    <div class="section">
+        <a href="https://fosdem.org/2021/schedule/roomtracks/" target="_blank">
+            <div class="button schedule">See the full event
+                schedule</div>
+        </a>
+    </div>
+
+    <div class="section_callout">
+        <h2>Get the conversation going</h2>
+        <div class="section_cards">
+            <a class="card" href="#">
+                <div>
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.3774 28.5856C23.5321 28.5856 29.3321 22.7835 29.3321 15.6262C29.3321 8.46888 23.5321 2.66675 16.3774 2.66675C9.2227 2.66675 3.42267 8.46888 3.42267 15.6262C3.42267 17.6311 3.8778 19.5297 4.69034 21.2242L2.5415 28.2105C2.30491 28.9797 3.02757 29.6991 3.79568 29.459L10.7281 27.2918C12.4355 28.1207 14.3522 28.5856 16.3774 28.5856Z"
+                            fill="#333333" />
+                    </svg>
+                    <h3>Send a Direct Message</h3>
+                </div>
+            </a>
+            <a class="card" href="/#directory">
+                <div>
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M30.2223 16.0001C30.2223 23.8548 23.8548 30.2223 16.0001 30.2223C8.14534 30.2223 1.77783 23.8548 1.77783 16.0001C1.77783 8.14534 8.14534 1.77783 16.0001 1.77783C23.8548 1.77783 30.2223 8.14534 30.2223 16.0001ZM23.7777 9.46956C24.1038 8.7614 23.2385 7.89608 22.5303 8.22211L13.635 12.3174C13.047 12.5881 12.587 13.0482 12.3163 13.6362L8.22099 22.5314C7.89496 23.2396 8.76028 24.1049 9.46844 23.7789L18.3637 19.6836C18.9517 19.4129 19.4118 18.9528 19.6825 18.3648L23.7777 9.46956Z"
+                            fill="#333333" />
+                        <path
+                            d="M17.5707 17.5718C16.7029 18.4397 15.2958 18.4397 14.428 17.5718C13.5602 16.704 13.5602 15.297 14.428 14.4291C15.2958 13.5613 16.7029 13.5613 17.5707 14.4291C18.4385 15.297 18.4385 16.704 17.5707 17.5718Z"
+                            fill="#333333" />
+                    </svg>
+                    <h3>Explore Public Rooms</h3>
+                </div>
+            </a>
+            <a class="card" href="#">
+                <div>
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.0001 30.4001C23.953 30.4001 30.4001 23.953 30.4001 16.0001C30.4001 8.0472 23.953 1.6001 16.0001 1.6001C8.0472 1.6001 1.6001 8.0472 1.6001 16.0001C1.6001 23.953 8.0472 30.4001 16.0001 30.4001ZM11.2001 16.6002C13.1883 16.6002 14.8001 14.8541 14.8001 12.7002C14.8001 10.5463 13.1883 8.80019 11.2001 8.80019C9.21183 8.80019 7.60006 10.5463 7.60006 12.7002C7.60006 14.8541 9.21183 16.6002 11.2001 16.6002ZM22.3077 18.0335C24.0495 18.0335 25.4616 16.5038 25.4616 14.6169C25.4616 12.7299 24.0495 11.2002 22.3077 11.2002C20.5659 11.2002 19.1539 12.7299 19.1539 14.6169C19.1539 16.5038 20.5659 18.0335 22.3077 18.0335ZM12.5882 18.5362C15.2258 19.1139 17.2 21.4637 17.2 24.2746L17.2 28.1658H10L4.68604 22.6002C5.83863 20.1178 8.32215 18.4002 11.2 18.4002C11.6749 18.4002 12.139 18.447 12.5882 18.5362ZM18.7903 20.6997C19.3094 21.7817 19.6001 22.994 19.6001 24.2743L19.6001 28.1655H22.3078L27.6416 22.5999C26.5238 20.8031 24.5528 19.6101 22.3078 19.6101C21.0054 19.6101 19.7952 20.0117 18.7903 20.6997Z"
+                            fill="#333333" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.0001 28.0001C22.6275 28.0001 28.0001 22.6275 28.0001 16.0001C28.0001 9.37268 22.6275 4.0001 16.0001 4.0001C9.37268 4.0001 4.0001 9.37268 4.0001 16.0001C4.0001 22.6275 9.37268 28.0001 16.0001 28.0001ZM16.0001 30.4001C23.953 30.4001 30.4001 23.953 30.4001 16.0001C30.4001 8.0472 23.953 1.6001 16.0001 1.6001C8.0472 1.6001 1.6001 8.0472 1.6001 16.0001C1.6001 23.953 8.0472 30.4001 16.0001 30.4001Z"
+                            fill="#333333" />
+                    </svg>
+
+                    <h3>Create a Group Chat</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
