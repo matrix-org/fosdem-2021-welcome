@@ -135,15 +135,20 @@
     .room_directory {
         display: flex;
         flex-direction: row;
+        align-items: flex-start;
         justify-content: center;
         flex-wrap: wrap;
     }
 
-    .rooms_left {
+    .room_directory.left {
+        display: flex;
+        flex-direction: column;
         margin-right: 10px;
     }
 
-    .rooms_right {
+    .room_directory.right {
+        display: flex;
+        flex-direction: column;
         margin-left: 10px;
     }
 
@@ -235,7 +240,6 @@
     }
 </style>
 
-
 <div class="container">
     <div class="welcome">
 
@@ -301,32 +305,32 @@
     </div>
 
     <div class="room_directory">
-        <div class="rooms_left">
+        <div class="room_directory left ">
             <h2>Main Tracks</h2>
-            <div class="room_card ">
+            <div class="room_card" id="mainTrack">
                 <div class="room_text">
                     <img src="https://via.placeholder.com/32">
-                    <p>The cafe</p>
+                    <p>roomName</p>
                 </div>
                 <div class="btn"> <a href="#">
                         <div class="button">Join</div>
                     </a>
                 </div>
             </div>
-            <div class="room_card ">
-                <div class="room_text">
+            <div class="room_card">
+                <div class="room_text" id="mainTrack">
                     <img src="https://via.placeholder.com/32">
-                    <p>The food trucks</p>
+                    <p>roomName</p>
                 </div>
                 <div class="btn"> <a href="#">
                         <div class="button">Join</div>
                     </a>
                 </div>
             </div>
-            <div class="room_card ">
-                <div class="room_text">
+            <div class="room_card">
+                <div class="room_text" id="mainTrack">
                     <img src="https://via.placeholder.com/32">
-                    <p>The beer event</p>
+                    <p>roomName</p>
                 </div>
                 <div class="btn"> </div>
                 <div class="btn"> <a href="#">
@@ -334,10 +338,10 @@
                     </a>
                 </div>
             </div>
-            <div class="room_card ">
-                <div class="room_text">
+            <div class="room_card">
+                <div class="room_text" id="mainTrack">
                     <img src="https://via.placeholder.com/32">
-                    <p>The lounge</p>
+                    <p>roomName</p>
                 </div>
                 <div class="btn"> <a href="#">
                         <div class="button">Join</div>
@@ -347,30 +351,30 @@
             <div class="title_card">
                 <h2>Dev Rooms</h2>
             </div>
-            <div class="room_card ">
+            <div class="room_card" id="devRoom">
                 <div class="room_text">
                     <img src="https://via.placeholder.com/32">
-                    <p>The cafe</p>
+                    <p>roomName</p>
                 </div>
                 <div class="btn"> <a href="#">
                         <div class="button">Join</div>
                     </a>
                 </div>
             </div>
-            <div class="room_card ">
+            <div class="room_card" id="devRoom">
                 <div class="room_text">
                     <img src="https://via.placeholder.com/32">
-                    <p>The food trucks</p>
+                    <p>roomName</p>
                 </div>
                 <div class="btn"> <a href="#">
                         <div class="button">Join</div>
                     </a>
                 </div>
             </div>
-            <div class="room_card ">
+            <div class="room_card" id="devRoom">
                 <div class="room_text">
                     <img src="https://via.placeholder.com/32">
-                    <p>The beer event</p>
+                    <p>roomName</p>
                 </div>
                 <div class="btn"> </div>
                 <div class="btn"> <a href="#">
@@ -378,10 +382,10 @@
                     </a>
                 </div>
             </div>
-            <div class="room_card ">
+            <div class="room_card" id="devRoom">
                 <div class="room_text">
                     <img src="https://via.placeholder.com/32">
-                    <p>The lounge</p>
+                    <p>roomName</p>
                 </div>
                 <div class="btn"> <a href="#">
                         <div class="button">Join</div>
@@ -389,32 +393,32 @@
                 </div>
             </div>
         </div>
-        <div class="rooms_right">
+        <div class="room_directory right">
             <h2>Stands</h2>
-            <div class="room_card ">
+            <div class="room_card" id="stand">
                 <div class="room_text">
                     <img src="https://via.placeholder.com/32">
-                    <p>The cafe</p>
+                    <p>roomName</p>
                 </div>
                 <div class="btn"> <a href="#">
                         <div class="button">Join</div>
                     </a>
                 </div>
             </div>
-            <div class="room_card ">
+            <div class="room_card" id="stand">
                 <div class="room_text">
                     <img src="https://via.placeholder.com/32">
-                    <p>The food trucks</p>
+                    <p>roomName</p>
                 </div>
                 <div class="btn"> <a href="#">
                         <div class="button">Join</div>
                     </a>
                 </div>
             </div>
-            <div class="room_card ">
+            <div class="room_card" id="stand">
                 <div class="room_text">
                     <img src="https://via.placeholder.com/32">
-                    <p>The beer event</p>
+                    <p>roomName</p>
                 </div>
                 <div class="btn"> </div>
                 <div class="btn"> <a href="#">
@@ -422,10 +426,10 @@
                     </a>
                 </div>
             </div>
-            <div class="room_card ">
+            <div class="room_card" id="stand">
                 <div class="room_text">
                     <img src="https://via.placeholder.com/32">
-                    <p>The lounge</p>
+                    <p>roomName</p>
                 </div>
                 <div class="btn"> <a href="#">
                         <div class="button">Join</div>
@@ -433,30 +437,30 @@
                 </div>
             </div>
 
-            <div class="room_card ">
+            <div class="room_card" id="stand">
                 <div class="room_text">
                     <img src="https://via.placeholder.com/32">
-                    <p>The cafe</p>
+                    <p>roomName</p>
                 </div>
                 <div class="btn"> <a href="#">
                         <div class="button">Join</div>
                     </a>
                 </div>
             </div>
-            <div class="room_card ">
+            <div class="room_card" id="stand">
                 <div class="room_text">
                     <img src="https://via.placeholder.com/32">
-                    <p>The food trucks</p>
+                    <p>roomName</p>
                 </div>
                 <div class="btn"> <a href="#">
                         <div class="button">Join</div>
                     </a>
                 </div>
             </div>
-            <div class="room_card ">
+            <div class="room_card" id="stand">
                 <div class="room_text">
                     <img src="https://via.placeholder.com/32">
-                    <p>The beer event</p>
+                    <p>roomName</p>
                 </div>
                 <div class="btn"> </div>
                 <div class="btn"> <a href="#">
@@ -464,10 +468,10 @@
                     </a>
                 </div>
             </div>
-            <div class="room_card ">
+            <div class="room_card" id="stand">
                 <div class="room_text">
                     <img src="https://via.placeholder.com/32">
-                    <p>The lounge</p>
+                    <p>roomName</p>
                 </div>
                 <div class="btn"> <a href="#">
                         <div class="button">Join</div>
