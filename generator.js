@@ -48,7 +48,7 @@ function genRoomCard(id, mode) {
             <!--<img src="https://via.placeholder.com/32">-->
             <p>${roomName}</p>
         </div>
-        <div class="btn"> <a href="/#/${canonicalAlias}">
+        <div class="btn"> <a href="/#/room/${canonicalAlias}">
                 <div class="button">Join</div>
             </a>
         </div>
