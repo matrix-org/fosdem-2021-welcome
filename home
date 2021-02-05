@@ -135,9 +135,9 @@
     .room_directory {
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
         align-items: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
     .room_directory.left {
